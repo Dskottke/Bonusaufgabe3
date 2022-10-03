@@ -22,8 +22,9 @@ public class Main {
         printArray(arrayInt);
 
         //Schreibe eine Methode die einen String nach , separiert und als Array zurück gibt.
-    //    String word = ("pter,lust,hans");
-
+        String word = ("peter,lust,hans");
+        String[] arrayString = wordToStringArray(word);
+        printArray(arrayString);
     }
 
     public static void printWordBackwords(String word) {
@@ -39,5 +40,17 @@ public class Main {
         }
         System.out.println();
     }
+    public static void printArray(String[] arrayString) {
+        for (String string : arrayString) {
+            System.out.print(string == arrayString[0] ? string : ", " + string);
+        }
+    }
+    public static String [] wordToStringArray(String word){
 
-}
+    String[] wordsInArray = word.split(",");
+
+return wordsInArray;
+       }
+    }
+
+
