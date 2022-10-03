@@ -25,6 +25,9 @@ public class Main {
         String word = ("peter,lust,hans");
         String[] arrayString = wordToStringArray(word);
         printArray(arrayString);
+
+        //Schreibe eine Methode die Quersumme einer Ganzzahl berechnet.
+        System.out.println(getChecksum(125));
     }
 
     public static void printWordBackwords(String word) {
@@ -40,17 +43,30 @@ public class Main {
         }
         System.out.println();
     }
+
     public static void printArray(String[] arrayString) {
         for (String string : arrayString) {
             System.out.print(string == arrayString[0] ? string : ", " + string);
         }
+        System.out.println();
     }
-    public static String [] wordToStringArray(String word){
 
-    String[] wordsInArray = word.split(",");
+    public static String[] wordToStringArray(String word) {
 
-return wordsInArray;
-       }
+        String[] wordsInArray = word.split(",");
+
+        return wordsInArray;
     }
+
+    public static int getChecksum(int value) {
+
+        int checksum = 0;
+        for (; value > 0; value /= 10) {
+            checksum += (value % 10);
+        }
+        return checksum;
+    }
+
+}
 
 
