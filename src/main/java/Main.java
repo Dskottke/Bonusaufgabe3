@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.TreeMap;
+
 
 public class Main {
 
@@ -7,6 +9,20 @@ public class Main {
     //Schreibe eine Methode die einen String nach , separiert und als Array zurück gibt.
     //Schreibe eine Methode die Quersumme einer Ganzzahl berechnet.
     //Gib eine Ganzzahl (1-100) als römische Zahl aus (12 = XII)
+
+    private final static TreeMap<Integer, String> map = new TreeMap<Integer, String>();
+
+    static {
+        map.put(100, "C");
+        map.put(90, "XC");
+        map.put(50, "L");
+        map.put(40, "XL");
+        map.put(10, "X");
+        map.put(9, "IX");
+        map.put(5, "V");
+        map.put(4, "IV");
+        map.put(1, "I");
+    }
 
     public static void main(String[] args) {
 
@@ -28,6 +44,9 @@ public class Main {
 
         //Schreibe eine Methode die Quersumme einer Ganzzahl berechnet.
         System.out.println(getChecksum(125));
+
+        //Gib eine Ganzzahl (1-100) als römische Zahl aus (12 = XII)
+        intToRoman(52);
     }
 
     public static void printWordBackwords(String word) {
@@ -67,6 +86,23 @@ public class Main {
         return checksum;
     }
 
+    public static void intToRoman(int value) {
+        if (value > 100 || value < 0) {
+            System.out.println("Die Zahl ist größer als 100 oder kleiner als 0");
+            return;
+        }
+
+        int s = map.floorKey(value);
+        if (value == s) {
+            System.out.println(map.get(value));
+            return;
+        }
+        System.out.print(map.get(s));
+        intToRoman(value - s);
+
+    }
 }
+
+
 
 
